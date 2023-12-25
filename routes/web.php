@@ -1,7 +1,10 @@
 <?php
 
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\IndexController;
+use App\Http\Controllers\AuthentificationController;
 use Illuminate\Support\Facades\Route;
+use TCG\Voyager\Facades\Voyager;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,6 +19,12 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [IndexController::class, 'index'])->name('index');
 
+Route::get('/contact', [ContactController::class, 'index'])->name('contact.index');
+Route::post('/contact/post', [ContactController::class, 'store'])->name('contact.post');
+
+Route::group(['prefix' => 'auth'], function (){
+    Route::get('/register', [AuthentificationController::class, 'register'])->name('register.index');
+});
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();

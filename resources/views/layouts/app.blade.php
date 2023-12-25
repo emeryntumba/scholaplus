@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="{{asset('css/style.css')}}">
     <title>@yield('title')</title>
 </head>
-<body>
+<body id="top">
 
      @include('components.header')
 
@@ -42,5 +42,5 @@
 
     <script src="{{asset('js/custom.js')}}"></script>
 
-</body id="top">
+</body>
 </html>
